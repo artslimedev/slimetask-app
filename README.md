@@ -21,9 +21,7 @@
 
 ## Tech Stack
 
-### 🔹 Language
-
-- **Typescript**
+---
 
 ### 🔹 Frontend
 
@@ -42,6 +40,39 @@
 - **Zod** – A TypeScript-first schema declaration and validation library, used to validate and parse request data.
 
 ---
+
+---
+
+## Summary
+
+Slimetask is my attempt at building a clean, modern task manager without overcomplicating things. I wanted something fast, lightweight, and pleasant to use — both visually and under the hood. As someone with a design background, the UI/UX was just as important to me as the technical side.
+
+I chose **Next.js** to keep everything in one place — frontend and backend — which makes development smoother and easier to manage. **TypeScript** helps catch bugs early and makes the codebase more predictable. For styling and components, I leaned on **Tailwind CSS** and **shadcn/ui** to move quickly while still having full control over the design.
+
+On the backend, I went with **PostgreSQL** for reliable structured data and **Prisma** to simplify working with it. Prisma's developer experience is just really solid — it handles migrations, types, and queries cleanly. I also use **Zod** for validating data and keeping things safe and consistent between client and server.
+
+This is just the starting point, but it’s built with growth in mind. I plan to expand it with teams, calendars, auth, and more down the line.
+
+---
+
+## Tech Stack
+
+### 🔹 Frontend
+
+- **Next.js** – Chosen for its powerful routing system, built-in SSR, and ability to keep frontend and backend logic within one framework.
+- **TypeScript** – Used for its static typing, autocomplete support, and reduced runtime errors. It improves maintainability and developer confidence.
+- **Shadcn/UI** – Offers accessible, unstyled primitives with the flexibility to build custom and consistent UI quickly.
+- **Tailwind CSS** – Great for creating responsive layouts rapidly with a design-first mindset.
+
+### 🔹 Backend
+
+- **Next.js API Routes** – Keeping backend and frontend within the same codebase makes iteration and deployment much simpler.
+- **PostgreSQL** – A reliable and feature-rich relational database, ideal for structured task and user data.
+- **Prisma** – Chosen for its excellent TypeScript support, developer-friendly syntax, and safe migrations.
+
+### 🔹 Validation
+
+- **Zod** – Type-safe schema validation that pairs perfectly with TypeScript to reduce boilerplate and catch errors early.
 
 ## Getting Started
 
@@ -83,12 +114,6 @@ Visit `http://localhost:3000` in your browser.
 
 ---
 
-## Screenshots
-
-<img width="1379" alt="Screenshot" src="https://github.com/user-attachments/assets/20a94307-dbe9-43d5-a9f0-52e5a7a9f555" />
-
----
-
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
@@ -98,5 +123,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
