@@ -16,7 +16,7 @@ module.exports = {
       files: ["lib/**/*.{ts,tsx,js,d.ts}"],
       rules: {
         "@typescript-eslint/no-unused-expressions": "off",
-        "@typescript-eslint/no-require-imports": "off", // ✅ disabled here
+        "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-empty-object-type": "off",
       },
