@@ -83,6 +83,12 @@ Visit `http://localhost:3000` in your browser.
 
 ---
 
+## Screenshots
+
+<img width="1379" alt="Screenshot" src="https://github.com/user-attachments/assets/20a94307-dbe9-43d5-a9f0-52e5a7a9f555" />
+
+---
+
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
