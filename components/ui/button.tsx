@@ -40,6 +40,7 @@ function Button({
   variant,
   size,
   asChild = false,
+  type,
   icon,
   ...props
 }: React.ComponentProps<"button"> &
@@ -53,6 +54,7 @@ function Button({
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }), "flex gap-2")}
+      type={type ? "button" : undefined}
       {...props}
     >
       {props.children}

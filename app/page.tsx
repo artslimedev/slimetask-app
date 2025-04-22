@@ -7,6 +7,8 @@ import {
 } from "@/components/ui/resizable";
 import Form from "@/components/form";
 import { CardDescription, CardTitle } from "@/components/ui/card";
+import TaskList from "@/components/tasklist";
+import Chart from "@/components/chart";
 
 export default function Home() {
   return (
@@ -18,7 +20,7 @@ export default function Home() {
       >
         <ResizablePanel>
           <ResizablePanelGroup direction="vertical">
-            <ResizablePanel>
+            <ResizablePanel className="max-h-[30vh]">
               <div className="h-full flex flex-col justify-center p-6 space-y-4">
                 <div className="space-y-2">
                   <CardTitle className="text-2xl font-bold">
@@ -32,11 +34,17 @@ export default function Home() {
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
-            <ResizablePanel>Charts</ResizablePanel>
+            <ResizablePanel className="min-h-[30vh] h-full">
+              <Chart />
+            </ResizablePanel>
           </ResizablePanelGroup>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel>List</ResizablePanel>
+        <ResizablePanel className="max-w-[75vw] min-w-[30vw]">
+          <div className="h-full overflow-y-auto p-6">
+            <TaskList />
+          </div>
+        </ResizablePanel>
       </ResizablePanelGroup>
     </div>
   );

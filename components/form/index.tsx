@@ -9,7 +9,7 @@ import {
 } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import formSchema, { FormSchema } from "./schema";
+import formSchema, { FormSchema, TaskStatus } from "./schema";
 import { Input } from "../ui/input";
 import {
   Select,
@@ -22,19 +22,65 @@ import StatusBullet from "../StatusBullet";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { IoAddOutline } from "react-icons/io5";
-import { createTask } from "@/services/task";
+import { createTask, deleteTask, updateTask } from "@/services/task";
+import { VscLoading } from "react-icons/vsc";
+import { toast } from "sonner";
+import { Task as PrismaTask, Task } from "@/lib/generated/prisma";
 
-export default function Form() {
+type Props = {
+  task?: PrismaTask;
+  onSubmitOrDelete?: () => void;
+};
+
+export default function Form(props: Props) {
+  const { task, onSubmitOrDelete } = props;
+
+  const isEditing = !!task;
+
+  const defaultValues = isEditing
+    ? {
+        title: task.title,
+        description: task.description ?? undefined,
+        status: (task.status as TaskStatus) || "starting",
+      }
+    : {
+        title: "",
+        description: "",
+        status: "starting" as TaskStatus,
+      };
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: "",
-      description: "",
-      status: "starting",
-    },
+    defaultValues: defaultValues,
   });
+  const [isLoading, setIsLoading] = React.useState(false);
   const onSubmit = async (data: FormSchema) => {
-    await createTask(data);
+    setIsLoading(true);
+    if (!isEditing) {
+      await createTask(data);
+    } else {
+      const newTask = {
+        id: task.id,
+        title: data.title,
+        description: data.description || "",
+        status: data.status,
+        createdAt: task.createdAt,
+      } as Task;
+      await updateTask(newTask);
+    }
+    setIsLoading(false);
+    toast.success(
+      isEditing ? "Task updated successfully" : "Task created successfully"
+    );
+    onSubmitOrDelete?.();
+  };
+
+  const onDelete = async () => {
+    if (!task?.id) return;
+    setIsLoading(true);
+    await deleteTask(task.id);
+    setIsLoading(false);
+    await toast.success("Task deleted successfully");
+    onSubmitOrDelete?.();
   };
   return (
     <FormComp {...form}>
@@ -82,10 +128,21 @@ export default function Form() {
               </FormItem>
             )}
           />
-          <Button type="submit" icon={<IoAddOutline />}>
-            {/* @ts-ignore */}
-            Add Task
-          </Button>
+          {isEditing ? null : (
+            <Button
+              type="submit"
+              icon={
+                isLoading ? (
+                  <VscLoading className="animate-spin" />
+                ) : (
+                  <IoAddOutline />
+                )
+              }
+              onClick={form.handleSubmit(onSubmit)}
+            >
+              Add Task
+            </Button>
+          )}
         </div>
         <FormField
           control={form.control}
@@ -103,6 +160,24 @@ export default function Form() {
             </FormItem>
           )}
         />
+        {isEditing ? (
+          <div className="flex items-center gap-2">
+            <Button
+              type="submit"
+              onClick={form.handleSubmit(onSubmit)}
+              disabled={isLoading}
+            >
+              Save Changes
+            </Button>
+            <Button
+              variant={"destructive"}
+              onClick={onDelete}
+              disabled={isLoading}
+            >
+              Delete
+            </Button>
+          </div>
+        ) : null}
       </form>
     </FormComp>
   );
