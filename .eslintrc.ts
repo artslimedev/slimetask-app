@@ -14,7 +14,7 @@ const config: Linter.BaseConfig = {
   },
   overrides: [
     {
-      files: ["./lib/**/*.{ts,tsx}"],
+      files: ["./lib/**/*.{ts,tsx,.js,jsx}"],
       rules: {
         "@typescript-eslint/no-unused-expressions": "off",
         "@typescript-eslint/no-require-imports": "off",
