@@ -27,10 +27,10 @@ const groups = [
     label: "Teams",
     teams: [
       {
-        label: "Art Slime",
+        label: "Mobile Support Team",
       },
       {
-        label: "Art Slime v2",
+        label: "Backend Team",
       },
     ],
   },
