@@ -74,6 +74,11 @@ This is just the starting point, but it’s built with growth in mind. I plan to
 
 - **Zod** – Type-safe schema validation that pairs perfectly with TypeScript to reduce boilerplate and catch errors early.
 
+### 🔹 Screenshots
+
+<img width="1379" alt="Screenshot" src="https://github.com/user-attachments/assets/f3262ed2-302f-45d3-9d66-e2d7d452ab44" />
+<img width="1379" alt="Edit" src="https://github.com/user-attachments/assets/aad5b0cc-84d1-4ce3-af1d-213c17f724c0" />
+
 ## Getting Started
 
 ### 1. Clone the Repo
@@ -111,12 +116,6 @@ npm run dev
 ```
 
 Visit `http://localhost:3000` in your browser.
-
----
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
 
 ---
 
