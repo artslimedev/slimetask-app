@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Slimetask App
+
+**Slimetask** is a minimalist task management application built with modern web technologies. It's designed for simplicity and productivity, with a clean user interface and solid backend architecture.
+
+## Features
+
+- ✅ **Task Management** – Create, edit, and delete your tasks
+- ✅ **Responsive UI** – Works great on both desktop and mobile
+- ✅ **Real-time Updates** – Tasks update instantly without refreshing
+
+---
+
+## Planned Features
+
+- 📅 **Calendar** – Visualize tasks by date and deadlines
+- ⚙️ **Settings** – Customize preferences like theme and notifications
+- 👥 **Create Teams** – Collaborate with others and assign tasks
+- 🔐 **Authentication** – User login, registration, and account management
+- 🔍 **Search** – Quickly find tasks by keywords
+- 🗂️ **Task Categorizing** – Group tasks by project or context
+
+## Tech Stack
+
+### 🔹 Language
+
+- **Typescript**
+
+### 🔹 Frontend
+
+- **Next.js** – A powerful React framework for building fast, full-stack web apps with built-in routing and server-side rendering.
+- **Shadcn/UI** – A customizable UI component library built on top of Radix UI and Tailwind CSS.
+- **Tailwind CSS** – Utility-first CSS framework for rapid and responsive design.
+
+### 🔹 Backend
+
+- **Next.js API Routes** – Used for server-side logic and API endpoints within the same codebase.
+- **PostgreSQL** – A robust, open-source relational database system for storing task data.
+- **Prisma** – A modern ORM (Object-Relational Mapper) for TypeScript and Node.js that simplifies database interactions.
+
+### 🔹 Validation
+
+- **Zod** – A TypeScript-first schema declaration and validation library, used to validate and parse request data.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/artslimedev/slimetask-app.git
+cd slimetask-app
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root with your database connection string:
+
+```env
+DATABASE_URL=your_postgres_connection_string
+```
+
+### 4. Set Up the Database
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Run the Dev Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the [MIT License](LICENSE).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
