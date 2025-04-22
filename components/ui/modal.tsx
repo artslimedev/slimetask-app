@@ -1,6 +1,6 @@
 "use client";
 // This component is a modal that can be used to display content in a popup window.
-import React, { useRef } from "react";
+import React from "react";
 import { IoClose } from "react-icons/io5";
 
 type Props = {

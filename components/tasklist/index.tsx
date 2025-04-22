@@ -21,7 +21,7 @@ export default async function TaskList() {
     <div className="space-y-4">
       <div className="space-y-2">
         <CardTitle> Your tasks for today</CardTitle>
-        <CardDescription>Let's get everything done</CardDescription>
+        <CardDescription>{`Let's get everything done`}</CardDescription>
       </div>
       <Table className="w-full h-full">
         <TableCaption>A list of your tasks.</TableCaption>
@@ -39,7 +39,6 @@ export default async function TaskList() {
                 {getDate(task.createdAt)}
               </TableCell>
               <TitleCell task={task} />
-              {/* <TableCell className="font-medium">{task.title}</TableCell> */}
               <TableCell className="capitalize ">
                 <StatusBullet status={task.status as TaskStatus} />
               </TableCell>
