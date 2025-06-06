@@ -51,22 +51,16 @@ export const updateTask = async (task: Task) => {
 };
 
 export const getTaskCountByStatus = async () => {
-  const [starting, progress, completed] = await Promise.all([
-    prisma.task.count({
-      where: {
-        status: "starting",
-      },
-    }),
-    prisma.task.count({
-      where: {
-        status: "progress",
-      },
-    }),
-    prisma.task.count({
-      where: {
-        status: "completed",
-      },
-    }),
-  ]);
-  return { starting, progress, completed };
+  const counts = await prisma.task.groupBy({
+    by: ["status"],
+    _count: {
+      status: true,
+    },
+  });
+
+  return {
+    starting: counts.find((c) => c.status === "starting")?._count.status ?? 0,
+    progress: counts.find((c) => c.status === "progress")?._count.status ?? 0,
+    completed: counts.find((c) => c.status === "completed")?._count.status ?? 0,
+  };
 };
